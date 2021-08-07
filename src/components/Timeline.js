@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import TimelineData from "../data";
 import TimelineItem from "./TimelineItem";
 
