@@ -10,15 +10,22 @@ const Timeline = () => {
         const timeId = setTimeout(() => {
         // After 3 seconds set the show value to false
             console.log("timer");
+            
             count.current === 6 ? (count.current = 0) : (count.current = count.current + 1);
+
+            // for (let i = 0; i < (count.current++); i++) {
+            //     count.current === 6 ? (count.current = 0) : (count.current = count.current + 1);
+            // }
 
             setNotification([...notification, TimelineData[count.current - 1]]);
         }, 2000);
 
+        
+
         return () => {
             clearTimeout(timeId);
         };
-    }, [notification]);
+    });
 
     console.log("count", count, notification);
     return (
