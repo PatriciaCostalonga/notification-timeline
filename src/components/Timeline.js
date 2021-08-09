@@ -3,30 +3,30 @@ import TimelineData from "../data";
 import TimelineItem from "./TimelineItem";
 
 const Timeline = () => {
-const count = useRef(0);
-const [notification, setNotification] = useState([]);
+    const count = useRef(0);
+    const [notification, setNotification] = useState([]);
 
-useEffect(() => {
-    const timeId = setTimeout(() => {
-      // After 3 seconds set the show value to false
-        console.log("timeer");
-        count.current === 6 ? (count.current = 0) : (count.current = count.current + 1);
+    useEffect(() => {
+        const timeId = setTimeout(() => {
+        // After 3 seconds set the show value to false
+            console.log("timer");
+            count.current === 6 ? (count.current = 0) : (count.current = count.current + 1);
 
-        setNotification([...notification, TimelineData[count.current - 1]]);
-    }, 2000);
+            setNotification([...notification, TimelineData[count.current - 1]]);
+        }, 2000);
 
-    return () => {
-        clearTimeout(timeId);
-    };
-});
+        return () => {
+            clearTimeout(timeId);
+        };
+    }, [notification]);
 
-console.log("count", count, notification);
-return (
-    <div className="timeline-container">
-        {notification.map((data, id) => (
-            <TimelineItem data={data} key={id} />
-        ))}
-    </div>
+    console.log("count", count, notification);
+    return (
+        <div className="timeline-container">
+            {notification.map((data) => (
+                <TimelineItem data={data} key={data.id} />
+            ))}
+        </div>
     );
 };
 
