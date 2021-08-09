@@ -27,7 +27,7 @@ h1{
 
 .timeline-container{
   display: flex;
-  flex-direction: column;
+  flex-direction: column-reverse;
   margin: 40px 0;
   position: relative;
 }
