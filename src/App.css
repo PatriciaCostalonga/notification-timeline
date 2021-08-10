@@ -25,6 +25,10 @@ h1{
   text-align: center;
 }
 
+/* .active{
+
+} */
+
 .timeline-container{
   display: flex;
   flex-direction: column-reverse;

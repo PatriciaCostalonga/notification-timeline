@@ -89,19 +89,6 @@ const data = [
             url: 'https://www.patriciacostalonga.com/',
             text: 'read more'
         }
-    },
-    {
-        id: 8,
-        text: 'Hello this is a test 8',
-        time: '14:00h',
-        category: {
-            tag: 'medium',
-            color: '#ff66ee'
-        },
-        link:{
-            url: 'https://www.patriciacostalonga.com/',
-            text: 'read more'
-        }
     }
 ]
 export default data;
