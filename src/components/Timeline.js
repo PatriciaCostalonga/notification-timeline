@@ -7,22 +7,22 @@ const Timeline = () => {
     const [notification, setNotification] = useState([]);
 
     useEffect(() => {
-        const timeId = setTimeout(() => {
-            console.log("timer");
-
-            count.current === 6 ? (count.current = 0) : (count.current = count.current + 1);
-            let newNotification = [...notification, TimelineData[count.current]];
-            
-            if (notification.length === 6) {
-                newNotification = [TimelineData[count.current]];
-            }
-            
-            setNotification(newNotification);
-        }, 2000);
-
-        return () => {
-            clearTimeout(timeId);
-        };
+            const timeId = setTimeout(() => {
+                console.log("timer");
+    
+                count.current === 6 ? (count.current = 0) : (count.current = count.current + 1);
+                let newNotification = [...notification, TimelineData[count.current]];
+                
+                if (notification.length >= 6) {
+                        newNotification = [TimelineData[count.current]];
+                }
+                
+                setNotification(newNotification);
+            }, 20000);
+    
+            return () => {
+                clearTimeout(timeId);
+            };
     });
 
 
