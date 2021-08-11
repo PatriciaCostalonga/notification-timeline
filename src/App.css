@@ -27,13 +27,13 @@ h1{
 
 .timeline-container{
   display: flex;
-  flex-direction: column;
+  flex-direction: column-reverse;
   margin: 40px 0;
   position: relative;
 }
 
 .timeline-container::after{
-  background-color: #ff0077;
+  background-color: #ff66ee;
   content: '';
   position: absolute;
   width: 4px;
@@ -48,13 +48,6 @@ h1{
   padding-right: 30px;
   margin: 10px 0;
   width: 50%;
-}
-
-.timeline-item:nth-child(odd){
-  align-self: flex-end;
-  justify-content: flex-start;
-  padding-right: 0;
-  padding-left: 30px;
 }
 
 .timeline-item-content {
@@ -85,17 +78,6 @@ h1{
   top: calc(50% - 7.5px);
 }
 
-.timeline-item:nth-child(odd) .timeline-item-content::after{
-  box-shadow: -1px 1px 1px rgba(0, 0, 0, 0.2);
-  right: auto;
-  left: -7.5px;
-}
-
-.timeline-item:nth-child(odd) .timeline-item-content{
-  align-items: flex-start;
-  text-align: left;
-}
-
 .timeline-item-content .tag{
   color: #fff;
   font-size: 12px;
@@ -107,11 +89,6 @@ h1{
   top: 5px;
   left: 5px;
   letter-spacing: 1px;
-}
-
-.timeline-item:nth-child(odd) .timeline-item-content .tag{
-  left: auto;
-  right: 5px;
 }
 
 .timeline-item-content .time{
@@ -139,7 +116,7 @@ h1{
 
 .timeline-item-content .circle{
   background-color: #fff;
-  border: 4px solid #ff0077;
+  border: 4px solid #ff66ee;
   border-radius: 50%;
   position: absolute;
   top: calc(50% - 10px);
@@ -149,12 +126,44 @@ h1{
   z-index: 100;
 }
 
-.timeline-item:nth-child(odd) .timeline-item-content .circle{
-  right: auto;
-  left: -40px;
+/* mobile */
+@media only screen and (max-width: 768px){
+  .timeline-item{
+    width: 100%;
+    justify-content: center;
+  }
+
+  .timeline-container::after{
+    left: calc(86% - 1px);
+  }
 }
 
-/* mobile */
-@media only screen and (max-width: 767px){
+@media only screen and (min-width: 768px){
+  .timeline-item:nth-child(odd){
+    align-self: flex-end;
+    justify-content: flex-start;
+    padding-right: 0;
+    padding-left: 30px;
+  }
+  
+  .timeline-item:nth-child(odd) .timeline-item-content::after{
+    box-shadow: -1px 1px 1px rgba(0, 0, 0, 0.2);
+    right: auto;
+    left: -7.5px;
+  }
 
+  .timeline-item:nth-child(odd) .timeline-item-content{
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  .timeline-item:nth-child(odd) .timeline-item-content .tag{
+    left: auto;
+    right: 5px;
+  }
+
+  .timeline-item:nth-child(odd) .timeline-item-content .circle{
+    right: auto;
+    left: -40px;
+  }
 }
