@@ -18,7 +18,7 @@ const Timeline = () => {
                 }
                 
                 setNotification(newNotification);
-            }, 20000);
+            }, 2000);
     
             return () => {
                 clearTimeout(timeId);

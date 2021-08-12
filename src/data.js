@@ -73,8 +73,20 @@ const data = [
             color: '#ff66ee'
         },
         link:{
-            url: 'https://www.patriciacostalonga.com/',
+            url: 'https://www.udemy.com/',
             text: 'read more'
+        }
+    },
+    {
+        id: 7,
+        text: 'Move your body',
+        time: '14:01:40',
+        category: {
+            tag: 'medium',
+            color: '#ff66ee'
+        },
+        link:{
+            url: 'https://www.steezy.co/',
         }
     }
 ]
