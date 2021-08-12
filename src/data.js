@@ -87,6 +87,7 @@ const data = [
         },
         link:{
             url: 'https://www.steezy.co/',
+            text: 'read more'
         }
     }
 ]
