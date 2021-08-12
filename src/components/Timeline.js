@@ -3,38 +3,63 @@ import TimelineData from "../data";
 import TimelineItem from "./TimelineItem";
 
 const Timeline = () => {
-    const count = useRef(0);
+
+   const count = useRef(-1);
     const [notification, setNotification] = useState([]);
+    const [stop, setStop]= useState(false)
 
     useEffect(() => {
-            const timeId = setTimeout(() => {
-                console.log("timer");
-    
-                count.current === 6 ? (count.current = 0) : (count.current = count.current + 1);
+        if(count.current >= 6){
+           
+             setStop(true)
+            return
+        }
+
+        
+
+        const timeId = setTimeout(() => {
+
+                (count.current = count.current + 1);
                 let newNotification = [...notification, TimelineData[count.current]];
                 
-                if (notification.length >= 6) {
-                        newNotification = [TimelineData[count.current]];
-                }
-                
                 setNotification(newNotification);
-            }, 2000);
-    
-            return () => {
-                clearTimeout(timeId);
-            };
+               
+            }, 20000);
+        
+        
+        return () => {
+            clearTimeout(timeId)
+            ;}
+        
+          
     });
 
+        useEffect(() => {
+               
+             const timeId = setTimeout(() => {
+                let newNotification = notification.filter((item)=>item.id !== 7);
+                setNotification(newNotification);
+            }, 20000);
+        
+        
+        return () => {
+            clearTimeout(timeId)
+            ;} 
+       
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+        },[stop]);        
+  
 
-    console.log("count", count, notification);
+
 
     return (
         <div className="timeline-container">
-            {notification.map((data, id) => (
+            {  notification.map((data, id) => (
                 <TimelineItem data={data} key={id} />
             ))}
         </div>
     );
 };
+    
 
 export default Timeline;
